@@ -12,25 +12,29 @@
         <nb-card>
             <nb-card-header><h4 class="text-center my-2 text-info">Nova Transacao</h4></nb-card-header>
             <nb-card-body>
+                <div class="form-group">
+                    <label class="label">De:</label>
+                    <br>
+                    <nb-select placeholder="Conta Saída" fullWidht>
+                        <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                    </nb-select>
+                </div>
+                <div class="form-group">
+                    <label class="label">Para: </label>
+                    <br>
+                    <nb-select placeholder="Conta Entrada" fullWidht>
+                        <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                    </nb-select>                </div>
+                <div class="form-group">
+                    <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">
+                </div>
 
-                <div class="form-group">
-                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Tipo">
-                </div>
-                <div class="form-group">
-                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Categoria">
-                </div>
-                <div class="form-group">
-                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Valor">
-                </div>
-
-                <div class="row">
-                    <div class="row d-flex justify-content-center mt-4" >
-                        <div class="col-md-1">
-                            <button nbButton status="basic">Voltar</button>
-                        </div>
-                        <div class="col-md-1">
-                            <button nbButton status="success">Cadastrar</button>
-                        </div>
+                <div class="row mt-4" >
+                    <div class="col-md-1 mr-5">
+                        <button nbButton status="basic">Voltar</button>
+                    </div>
+                    <div class="col">
+                        <button nbButton status="success">Cadastrar</button>
                     </div>
                 </div>
 

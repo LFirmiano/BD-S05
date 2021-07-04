@@ -10,25 +10,23 @@
     <nb-layout-column class="colored-column-warning">
 
         <nb-card>
-            <nb-card-header><h4 class="text-center my-2 text-info">Meus Dados</h4></nb-card-header>
+            <nb-card-header><h4 class="text-center my-2 text-info">Minhas Contas</h4></nb-card-header>
             <nb-card-body>
-
-                <div class="form-group">
-                    <strong>Nome Completo:</strong> {{nome}}
-                </div>
-                <div class="form-group">
-                    <strong>CPF:</strong> {{cpf}}
-                </div>
-                <div class="form-group">
-                    <strong>Conta:</strong> {{conta}}
-                </div>
-                <div class="form-group">
-                    <strong>Agencia:</strong> {{agencia}}
-                </div>
-                <div class="form-group">
-                    <strong>Pix:</strong> {{pix}}
-                </div>
-
+                <nb-card>
+                    <nb-card-body *ngFor="let banco of bancos" class="m-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <p>{{banco.nome}}</p>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">
+                            </div>
+                            <div class="col-4">
+                                <button nbButton status="success">Adicionar Valor</button>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
             </nb-card-body>
         </nb-card>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Bancos } from 'src/app/Models/banco.model';
 
 @Component({
   selector: 'app-meus-dados',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeusDadosComponent implements OnInit {
 
-  nome: string = 'Lucas Firmiano Silva Girao'
-  cpf: string = '000.305.903-00'
-  conta: string = '12345678-9'
-  agencia: string = '1234'
-  pix: string = '000.305.903-00'
+  bancos: Bancos[] =[
+
+    new Bancos('Next',100.2),
+    new Bancos('Inter',58),
+    new Bancos('Nubank',80.4),
+  ];
 
   constructor() { }
 
