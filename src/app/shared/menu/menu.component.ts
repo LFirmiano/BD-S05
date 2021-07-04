@@ -22,16 +22,16 @@ export class MenuComponent implements OnInit {
       title: 'Extrato',
       link: '/extrato'
     },
-    {
-      title: 'Investimento',
-      link: '/investimentos'
-    },
+    // {
+    //   title: 'Investimento',
+    //   link: '/investimentos'
+    // },
     {
       title: 'Transacoes',
       link: '/transacoes'
     },
     {
-      title: 'Meus Dados',
+      title: 'Minha Contas',
       link: '/meusdados'
     }
   ];

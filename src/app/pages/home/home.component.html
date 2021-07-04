@@ -8,15 +8,13 @@
     </nb-sidebar>
 
     <nb-layout-column class="colored-column-warning">
-        <h1>Dashboard</h1>
-        <br>
-        <nb-card status="success">
-            <nb-card-header>Minha Carteira</nb-card-header>
+        <nb-card status="warning" *ngFor="let banco of bancos" >
+            <nb-card-header>Banco {{banco.nome}} </nb-card-header>
             <nb-card-body>
                 <div class="row">
                     <div class="col-md-11">
                         <h5 class="text-success"> 
-                            R$ 215,00
+                            R$ {{banco.valor}}
                         </h5>
                     </div>
                     <div class="col-md-1">
@@ -27,39 +25,6 @@
                 </div>
             </nb-card-body>
         </nb-card>
-
-        <nb-card status="info">
-            <nb-card-header>Meus Investimentos</nb-card-header>
-            <nb-card-body>
-                <div class="row">
-                    <div class="col-md-11">
-                        <h5 class="text-info"> 
-                            R$ 215,00
-                        </h5>
-                    </div>
-                    <div class="col-md-1">
-                        <button nbButton status="info" ghost>
-                            <nb-icon class="align-middle h-100" icon="arrow-ios-forward"></nb-icon>
-                        </button>
-                    </div>
-                </div>
-            </nb-card-body>
-        </nb-card>
-
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
-                <button nbButton outline fullWidth status="warning">
-                    Nova Transacao
-                </button>
-            </div>
-            <div class="col-md-5">
-                <button nbButton outline fullWidth status="danger">
-                    Novo Investimento
-                </button>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
 
     </nb-layout-column>
 
