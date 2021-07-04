@@ -19,7 +19,8 @@ export class MenuComponent implements OnInit {
       link: '/'
     },
     {
-      title: 'Extrato'
+      title: 'Extrato',
+      link: '/extrato'
     },
     {
       title: 'Investimento',

@@ -1,3 +1,4 @@
+import { ExtratoComponent } from './pages/extrato/extrato.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
   path: 'meusdados',
   component: MeusDadosComponent
+  },
+  {
+  path: 'extrato',
+  component: ExtratoComponent
   }
 ];
 

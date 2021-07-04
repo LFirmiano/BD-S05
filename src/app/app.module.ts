@@ -11,6 +11,7 @@ import { InvestimentosComponent } from './pages/investimentos/investimentos.comp
 import { MenuComponent } from './shared/menu/menu.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
+import { ExtratoComponent } from './pages/extrato/extrato.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
     InvestimentosComponent,
     MenuComponent,
     TransacoesComponent,
-    MeusDadosComponent
+    MeusDadosComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,
