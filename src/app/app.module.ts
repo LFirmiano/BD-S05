@@ -3,13 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbCardModule, NbIconModule, NbButtonModule, NbInputModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
+import { InvestimentosComponent } from './pages/investimentos/investimentos.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { TransacoesComponent } from './pages/transacoes/transacoes.component';
+import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
+import { ExtratoComponent } from './pages/extrato/extrato.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    InvestimentosComponent,
+    MenuComponent,
+    TransacoesComponent,
+    MeusDadosComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +29,14 @@ import { AppRoutingModule } from './app-routing.module';
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbCardModule,
+    NbIconModule,
+    NbButtonModule,
+    NbInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
