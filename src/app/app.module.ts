@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { InvestimentosComponent } from './pages/investimentos/investimentos.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
+import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TransacoesComponent } from './pages/transacoes/transacoes.component';
     HomeComponent,
     InvestimentosComponent,
     MenuComponent,
-    TransacoesComponent
+    TransacoesComponent,
+    MeusDadosComponent
   ],
   imports: [
     BrowserModule,

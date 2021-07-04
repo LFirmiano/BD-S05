@@ -1,0 +1,37 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        Income Management
+    </nb-layout-header>
+  
+    <nb-sidebar tag="left">
+        <app-menu></app-menu>
+    </nb-sidebar>
+
+    <nb-layout-column class="colored-column-warning">
+
+        <nb-card>
+            <nb-card-header><h4 class="text-center my-2 text-info">Meus Dados</h4></nb-card-header>
+            <nb-card-body>
+
+                <div class="form-group">
+                    <strong>Nome Completo:</strong> {{nome}}
+                </div>
+                <div class="form-group">
+                    <strong>CPF:</strong> {{cpf}}
+                </div>
+                <div class="form-group">
+                    <strong>Conta:</strong> {{conta}}
+                </div>
+                <div class="form-group">
+                    <strong>Agencia:</strong> {{agencia}}
+                </div>
+                <div class="form-group">
+                    <strong>Pix:</strong> {{pix}}
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+
+    </nb-layout-column>
+
+  </nb-layout>

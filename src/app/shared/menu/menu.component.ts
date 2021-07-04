@@ -15,6 +15,10 @@ export class MenuComponent implements OnInit {
 
   items: NbMenuItem[] = [
     {
+      title: 'Home',
+      link: '/'
+    },
+    {
       title: 'Extrato'
     },
     {
@@ -27,6 +31,7 @@ export class MenuComponent implements OnInit {
     },
     {
       title: 'Meus Dados',
+      link: '/meusdados'
     }
   ];
 

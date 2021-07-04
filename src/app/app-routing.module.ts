@@ -1,3 +1,4 @@
+import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InvestimentosComponent } from './pages/investimentos/investimentos.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
   path: 'transacoes',
   component: TransacoesComponent
+  },
+  {
+  path: 'meusdados',
+  component: MeusDadosComponent
   }
 ];
 
