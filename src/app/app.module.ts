@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { InvestimentosComponent } from './pages/investimentos/investimentos.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InvestimentosComponent,
-    MenuComponent
+    MenuComponent,
+    TransacoesComponent
   ],
   imports: [
     BrowserModule,

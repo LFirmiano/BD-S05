@@ -1,3 +1,4 @@
+import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InvestimentosComponent } from './pages/investimentos/investimentos.component';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
   path: 'investimentos',
   component: InvestimentosComponent
+  },
+  {
+  path: 'transacoes',
+  component: TransacoesComponent
   }
 ];
 

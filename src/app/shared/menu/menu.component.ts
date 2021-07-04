@@ -19,10 +19,11 @@ export class MenuComponent implements OnInit {
     },
     {
       title: 'Investimento',
-      link: 'investimentos'
+      link: '/investimentos'
     },
     {
       title: 'Transacoes',
+      link: '/transacoes'
     },
     {
       title: 'Meus Dados',
