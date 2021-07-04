@@ -1,0 +1,42 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        Income Management
+    </nb-layout-header>
+  
+    <nb-sidebar tag="left">
+        <app-menu></app-menu>
+    </nb-sidebar>
+
+    <nb-layout-column class="colored-column-warning">
+
+        <nb-card>
+            <nb-card-header><h4 class="text-center my-2 text-info">Novo Investimento</h4></nb-card-header>
+            <nb-card-body>
+
+                <div class="form-group">
+                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Acao">
+                </div>
+                <div class="form-group">
+                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Quantidade">
+                </div>
+                <div class="form-group">
+                    <input type="text" nbInput fullWidth status="basic" class="form-control" placeholder="Valor">
+                </div>
+
+                <div class="row">
+                    <div class="row d-flex justify-content-center mt-4" >
+                        <div class="col-md-1">
+                            <button nbButton status="basic">Voltar</button>
+                        </div>
+                        <div class="col-md-1">
+                            <button nbButton status="success">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+
+    </nb-layout-column>
+
+  </nb-layout>

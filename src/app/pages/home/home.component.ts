@@ -8,23 +8,9 @@ import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private sidebarService: NbSidebarService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  items: NbMenuItem[] = [
-    {
-      title: 'Extrato',
-    },
-    {
-      title: 'Investimento',
-    },
-    {
-      title: 'Transacoes',
-    },
-    {
-      title: 'Meus Dados',
-    }
-  ];
 }
