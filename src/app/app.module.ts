@@ -13,6 +13,8 @@ import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
+import { FormsModule } from '@angular/forms';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ExtratoComponent } from './pages/extrato/extrato.component';
     MenuComponent,
     TransacoesComponent,
     MeusDadosComponent,
-    ExtratoComponent
+    ExtratoComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { ExtratoComponent } from './pages/extrato/extrato.component';
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,18 +11,25 @@ export class ContaService {
 
   constructor(private http: HttpClient) { }
 
+  list() {
+    // this.result = this.http.get(this.baseUrl)
+    return "oi"
+  }
+
   readById(id: string | null) {
     const url =`${this.baseUrl}${id}`
-    this.result =  this.http.get(url)
+    // this.result =  this.http.get(url)
+    return url
   }
 
   create(nome: any){
-    this.result = this.http.post(this.baseUrl, JSON.stringify(nome))
+    // this.result = this.http.post(this.baseUrl, {name: nome})
+    return {name: nome}
   }
 
   delete(id: number){
     const url =`${this.baseUrl}${id}`
-    this.result = this.http.delete(url)
+    // this.result = this.http.delete(url)
   }
 
 

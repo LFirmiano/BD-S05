@@ -1,0 +1,32 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        Income Management
+    </nb-layout-header>
+  
+    <nb-sidebar tag="left">
+        <app-menu></app-menu>
+    </nb-sidebar>
+
+    <nb-layout-column class="colored-column-warning">
+        <div class="my-4">
+            <input type="text" nbInput [(ngModel)] = 'nomeCategoria' status="basic" placeholder="Banco">
+            <button nbButton status="success" (click) = 'submitForm()' class="mx-4">Cadastrar Categoria</button>
+        </div>
+        <nb-card status="warning" *ngFor="let categoria of categorias" >
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-11">
+                        <h5 class="align-middle h-100">{{categoria.nome}}</h5>
+                    </div>
+                    <div class="col-md-1">
+                        <button nbButton status="danger">
+                            <nb-icon class="align-middle h-100" (click) = "teste()" icon="trash"></nb-icon>
+                        </button>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+
+    </nb-layout-column>
+
+  </nb-layout>

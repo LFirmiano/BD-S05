@@ -11,13 +11,18 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
+  list() {
+    // this.result = this.http.get(this.baseUrl)
+    return "oi"
+  }
+
   readById(id: string | null) {
     const url =`${this.baseUrl}${id}`
     this.result =  this.http.get(url)
   }
 
   create(nome: any){
-    this.result = this.http.post(this.baseUrl, JSON.stringify(nome))
+    this.result = this.http.post(this.baseUrl, {name: nome})
   }
 
   delete(id: number){
