@@ -15,8 +15,11 @@
                 <nb-card>
                     <nb-card-body *ngFor="let banco of bancos" class="m-4">
                         <div class="row">
-                            <div class="col-4">
-                                <p>{{banco.nome}}</p>
+                            <div class="col-1">
+                                <p><strong>{{banco.nome}}</strong></p> 
+                            </div>
+                            <div class="col-3">
+                                <button nbButton status="info">Ver extrato</button> 
                             </div>
                             <div class="col-4">
                                 <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">

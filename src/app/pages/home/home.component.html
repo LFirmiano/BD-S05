@@ -8,6 +8,10 @@
     </nb-sidebar>
 
     <nb-layout-column class="colored-column-warning">
+        <div class="my-4">
+            <input type="text" nbInput status="basic" placeholder="Banco">
+            <button nbButton status="success" class="mx-4">Cadastrar Banco</button>
+        </div>
         <nb-card status="warning" *ngFor="let banco of bancos" >
             <nb-card-header>Banco {{banco.nome}} </nb-card-header>
             <nb-card-body>
