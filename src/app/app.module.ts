@@ -11,6 +11,7 @@ import { InvestimentosComponent } from './pages/investimentos/investimentos.comp
 import { MenuComponent } from './shared/menu/menu.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ExtratoComponent } from './pages/extrato/extrato.component';
     NbIconModule,
     NbButtonModule,
     NbInputModule,
-    NbSelectModule
+    NbSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
