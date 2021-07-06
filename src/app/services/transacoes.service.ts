@@ -22,7 +22,7 @@ export class TransacoesService {
   }
 
   createSpents(gastos: any){
-    this.result = this.http.post<JSON>(this.baseUrl + 'spents/', gastos)
+    return this.http.post(this.baseUrl + 'spents/', gastos)
   }
 
   deleteSpents(id: number){
@@ -70,7 +70,7 @@ export class TransacoesService {
 
   // GERAR JSON RECEITA/GASTOS
   treatDataSpentRevenue(input: any){
-    return {account: input.id_account, value: input.value, category: input.id_category}
+    return {account: parseInt(input.account_in), value: parseFloat(input.valor), category: parseInt(input.category), name: input.nome}
   }
 
   // GERAR JSON TRANSFERENCIAS

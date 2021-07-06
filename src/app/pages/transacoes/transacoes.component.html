@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label class="label">Categoria: </label>
                             <br>
-                            <nb-select placeholder="Categoria" [(ngModel)]="formSubmission.category_id" fullWidht>
+                            <nb-select placeholder="Categoria" [(ngModel)]="formSubmission.category" fullWidht>
                                 <nb-option *ngFor="let categoria of categorias" value="{{categoria.id}}" >{{categoria.nome}}</nb-option>
                             </nb-select>                
                         </div>

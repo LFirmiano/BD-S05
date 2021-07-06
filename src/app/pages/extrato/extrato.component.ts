@@ -46,6 +46,8 @@ export class ExtratoComponent implements OnInit {
           id: element.id,
         })
       });
+
+      console.log(this.todasTransacoes)
     })
 
 

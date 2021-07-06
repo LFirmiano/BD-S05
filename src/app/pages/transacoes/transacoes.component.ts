@@ -4,6 +4,7 @@ import { CategoriaService } from './../../services/categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { Bancos } from 'src/app/Models/banco.model';
 import { Categorias } from 'src/app/Models/categorias.model';
+import { TransacoesService } from 'src/app/services/transacoes.service';
 
 @Component({
   selector: 'app-transacoes',
@@ -22,15 +23,18 @@ export class TransacoesComponent implements OnInit {
     nome: 0,
     account_in: '',
     account_out: '',
-    category_id: '',
+    category: '',
     valor: ''
   }
+
+  sendTransaction!: any
   
   bancos: Bancos[] = []
   categorias: Categorias[] = []
 
     
-  constructor(private CategoriaService: CategoriaService, private ContaService: ContaService) { }
+  constructor(private CategoriaService: CategoriaService, private ContaService: ContaService,
+    private TransacoesService: TransacoesService) { }
 
   ngOnInit(): void {
 
@@ -49,7 +53,21 @@ export class TransacoesComponent implements OnInit {
   }
 
   submitForm(){
-    console.log(this.formSubmission)
+    if (this.formSubmission.nome == 0 || this.formSubmission.nome == 1){
+      this.sendTransaction = this.TransacoesService.treatDataSpentRevenue(this.formSubmission)
+      if (this.formSubmission.nome == 0){
+        this.sendTransaction.name = 'RECEITA'
+        this.TransacoesService.createRevenues(this.sendTransaction)
+      } else {
+        this.sendTransaction.name = 'DESPESA'
+        console.log(this.sendTransaction)
+        // this.TransacoesService.createSpents(this.sendTransaction).subscribe((result:any) => {
+        //   console.log(result)
+        // }, error => {
+        //   console.log(error)
+        // })
+      }
+    }
   }
 
 }
