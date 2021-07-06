@@ -10,33 +10,60 @@
     <nb-layout-column class="colored-column-warning">
 
         <nb-card>
-            <nb-card-header><h4 class="text-center my-2 text-info">Nova Transacao</h4></nb-card-header>
             <nb-card-body>
-                <div class="form-group">
-                    <label class="label">De:</label>
-                    <br>
-                    <nb-select placeholder="Conta Saída" fullWidht>
-                        <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
-                    </nb-select>
-                </div>
-                <div class="form-group">
-                    <label class="label">Para: </label>
-                    <br>
-                    <nb-select placeholder="Conta Entrada" fullWidht>
-                        <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
-                    </nb-select>                </div>
-                <div class="form-group">
-                    <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">
+
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                      <h4 class="text-center">
+                        Nova Transacao
+                      </h4>
+                    </div>
                 </div>
 
-                <div class="row mt-4" >
-                    <div class="col-md-1 mr-5">
-                        <button nbButton status="basic">Voltar</button>
-                    </div>
-                    <div class="col">
-                        <button nbButton status="success">Cadastrar</button>
-                    </div>
-                </div>
+                <nb-card>
+                    <nb-card-body>
+                        <div class="form-group">
+                            <label class="label">Tipo:</label>
+                            <br>
+                            <nb-select placeholder="Conta Saída" [(ngModel)]="selected" fullWidht>
+                                <nb-option *ngFor="let tipo of tipos" [value]="tipo.value" >{{tipo.nome}}</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="form-group">
+                            <label class="label">De:</label>
+                            <br>
+                            <nb-select placeholder="Conta Saída" fullWidht>
+                                <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                            </nb-select>
+                        </div>
+                        <div class="form-group" *ngIf = 'selected === 2'>
+                            <label class="label">Para: </label>
+                            <br>
+                            <nb-select placeholder="Conta Entrada" fullWidht>
+                                <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                            </nb-select>                
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Categoria: </label>
+                            <br>
+                            <nb-select placeholder="Categoria" fullWidht>
+                                <nb-option *ngFor="let categoria of categorias" value="{{categoria.nome}}" >{{categoria.nome}}</nb-option>
+                            </nb-select>                
+                        </div>
+                        <div class="form-group">
+                            <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">
+                        </div>
+
+                        <div class="row mt-4" >
+                            <div class="col-md-1 mr-5">
+                                <button nbButton routerLink ="/extrato" status="basic">Voltar</button>
+                            </div>
+                            <div class="col">
+                                <button nbButton status="success">Cadastrar</button>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
 
             </nb-card-body>
         </nb-card>

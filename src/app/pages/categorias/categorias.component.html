@@ -9,7 +9,7 @@
 
     <nb-layout-column class="colored-column-warning">
         <div class="my-4">
-            <input type="text" nbInput [(ngModel)] = 'nomeCategoria' status="basic" placeholder="Banco">
+            <input type="text" nbInput [(ngModel)] = 'nomeCategoria' status="basic" placeholder="Categoria">
             <button nbButton status="success" (click) = 'submitForm()' class="mx-4">Cadastrar Categoria</button>
         </div>
         <nb-card status="warning" *ngFor="let categoria of categorias" >

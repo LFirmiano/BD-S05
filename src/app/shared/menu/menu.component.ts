@@ -22,17 +22,9 @@ export class MenuComponent implements OnInit {
       title: 'Categorias',
       link: '/categorias'
     },
-    // {
-    //   title: 'Investimento',
-    //   link: '/investimentos'
-    // },
     {
       title: 'Transacoes',
       link: '/extrato'
-    },
-    {
-      title: 'Minha Contas',
-      link: '/meusdados'
     }
   ];
 
