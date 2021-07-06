@@ -14,12 +14,6 @@ export class CategoriasComponent implements OnInit {
   resultList!: any
 
   categorias: Categorias[] = [] 
-  // [
-
-  //   new Categorias('Alimentacao',1),
-  //   new Categorias('Transporte',2),
-  //   new Categorias('Sexo Anal',3),
-  // ];
 
   constructor(private CategoriaService: CategoriaService) { }
 
@@ -39,7 +33,7 @@ export class CategoriasComponent implements OnInit {
 
   deleteCategory(id: number | undefined){
     this.CategoriaService.delete(id).subscribe((result: any) => {
-      console.log(result)
+      window.location.reload()
     })
   }
 

@@ -1,3 +1,6 @@
+import { Transacoes } from './../../Models/transacoes.model';
+import { ContaService } from './../../services/conta.service';
+import { CategoriaService } from './../../services/categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { Bancos } from 'src/app/Models/banco.model';
 import { Categorias } from 'src/app/Models/categorias.model';
@@ -15,30 +18,38 @@ export class TransacoesComponent implements OnInit {
     {value: 2, nome: 'Transferencia'}
   ]
 
-  selected!: number
+  formSubmission = {
+    nome: 0,
+    account_in: '',
+    account_out: '',
+    category_id: '',
+    valor: ''
+  }
   
-  bancos: Bancos[] =[
-
-    new Bancos('Next',100.2),
-    new Bancos('Inter',58),
-    new Bancos('Nubank',80.4),
-  ];
-
-  categorias: Categorias[] =[
-
-    new Categorias('Alimentacao'),
-    new Categorias('Transporte'),
-    new Categorias('Sexo Anal'),
-  ];
+  bancos: Bancos[] = []
+  categorias: Categorias[] = []
 
     
-  constructor() { }
+  constructor(private CategoriaService: CategoriaService, private ContaService: ContaService) { }
 
   ngOnInit(): void {
+
+    this.ContaService.list().subscribe((result: any) => {
+      result.forEach( (element: any) => {
+        this.bancos.push(new Bancos(element.name, element.totalValue, element.id))
+      });
+    })
+
+    this.CategoriaService.list().subscribe((result: any) => {
+      result.forEach( (element: any) => {
+        this.categorias.push(new Categorias(element.name, element.id))
+      });
+    })
+
   }
 
-  mudaVal(id: number){
-    this.selected = id
+  submitForm(){
+    console.log(this.formSubmission)
   }
 
 }

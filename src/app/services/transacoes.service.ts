@@ -6,14 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class TransacoesService {
 
-  baseUrl = 'http://path.com.br/transactions/'
+  baseUrl = 'http://localhost:8090/transactions/'
   result: any
   
   constructor(private http: HttpClient) { }
   
   // GASTOS
   listSpents() {
-    this.result = this.http.get(this.baseUrl + 'spents')
+    return this.http.get(this.baseUrl + 'spents')
   }
 
   readByIdSpents(id: string | null) {
@@ -32,7 +32,7 @@ export class TransacoesService {
 
   // RECEITA
   listRevenues() {
-    this.result = this.http.get(this.baseUrl + 'revenues/')
+    return this.http.get(this.baseUrl + 'revenues/')
   }
 
   readByIdRevenues(id: string | null) {
@@ -51,20 +51,20 @@ export class TransacoesService {
 
   // TRANSFERENCIAS
   listTransfers() {
-    this.result = this.http.get(this.baseUrl + 'transfer/')
+    return this.http.get(this.baseUrl + 'transfers/')
   }
 
   readByIdTransfers(id: string | null) {
-    const url =`${this.baseUrl}transfer/${id}`
+    const url =`${this.baseUrl}transfers/${id}`
     this.result =  this.http.get(url)
   }
 
   createTransfers(gastos: any){
-    this.result = this.http.post(this.baseUrl + 'transfer/', gastos)
+    this.result = this.http.post(this.baseUrl + 'transfers/', gastos)
   }
 
   deleteTransfers(id: number){
-    const url =`${this.baseUrl}transfer/${id}`
+    const url =`${this.baseUrl}transfers/${id}`
     this.result = this.http.delete(url)
   }
 

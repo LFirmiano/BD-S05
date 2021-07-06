@@ -25,33 +25,33 @@
                         <div class="form-group">
                             <label class="label">Tipo:</label>
                             <br>
-                            <nb-select placeholder="Conta Saída" [(ngModel)]="selected" fullWidht>
+                            <nb-select placeholder="Conta Saída" [(ngModel)]="formSubmission.nome" fullWidht>
                                 <nb-option *ngFor="let tipo of tipos" [value]="tipo.value" >{{tipo.nome}}</nb-option>
                             </nb-select>
                         </div>
                         <div class="form-group">
                             <label class="label">De:</label>
                             <br>
-                            <nb-select placeholder="Conta Saída" fullWidht>
-                                <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                            <nb-select placeholder="Conta Saída" [(ngModel)]="formSubmission.account_in" fullWidht>
+                                <nb-option *ngFor="let banco of bancos" value="{{banco.id}}" >{{banco.nome}}</nb-option>
                             </nb-select>
                         </div>
-                        <div class="form-group" *ngIf = 'selected === 2'>
+                        <div class="form-group" *ngIf = 'formSubmission.nome === 2'>
                             <label class="label">Para: </label>
                             <br>
-                            <nb-select placeholder="Conta Entrada" fullWidht>
-                                <nb-option *ngFor="let banco of bancos" value="{{banco.nome}}" >{{banco.nome}}</nb-option>
+                            <nb-select placeholder="Conta Entrada" [(ngModel)]="formSubmission.account_out" fullWidht>
+                                <nb-option *ngFor="let banco of bancos" value="{{banco.id}}" >{{banco.nome}}</nb-option>
                             </nb-select>                
                         </div>
                         <div class="form-group">
                             <label class="label">Categoria: </label>
                             <br>
-                            <nb-select placeholder="Categoria" fullWidht>
-                                <nb-option *ngFor="let categoria of categorias" value="{{categoria.nome}}" >{{categoria.nome}}</nb-option>
+                            <nb-select placeholder="Categoria" [(ngModel)]="formSubmission.category_id" fullWidht>
+                                <nb-option *ngFor="let categoria of categorias" value="{{categoria.id}}" >{{categoria.nome}}</nb-option>
                             </nb-select>                
                         </div>
                         <div class="form-group">
-                            <input type="text" nbInput status="basic" class="form-control" placeholder="Valor">
+                            <input type="text" nbInput status="basic" class="form-control" [(ngModel)]="formSubmission.valor" placeholder="Valor">
                         </div>
 
                         <div class="row mt-4" >
@@ -59,7 +59,7 @@
                                 <button nbButton routerLink ="/extrato" status="basic">Voltar</button>
                             </div>
                             <div class="col">
-                                <button nbButton status="success">Cadastrar</button>
+                                <button nbButton (click) = "submitForm()" status="success">Cadastrar</button>
                             </div>
                         </div>
                     </nb-card-body>
