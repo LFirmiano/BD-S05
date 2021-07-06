@@ -1,33 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  baseUrl = 'http://path.com.br/category/'
+  baseUrl = 'http://localhost:8090/categories/'
   result: any
 
   constructor(private http: HttpClient) { }
 
   list() {
-    // this.result = this.http.get(this.baseUrl)
-    return "oi"
+    return this.http.get(this.baseUrl)
   }
 
-  readById(id: string | null) {
-    const url =`${this.baseUrl}${id}`
-    this.result =  this.http.get(url)
-  }
+  // readById(id: string | null) {
+  //   const url =`${this.baseUrl}${id}`
+  //   this.result =  this.http.get(url)
+  // }
 
   create(nome: any){
-    this.result = this.http.post(this.baseUrl, {name: nome})
+    return this.http.post(this.baseUrl, {name: nome})
   }
 
-  delete(id: number){
+  delete(id: number | undefined){
     const url =`${this.baseUrl}${id}`
-    this.result = this.http.delete(url)
+    return this.http.delete(url)
   }
   
 }

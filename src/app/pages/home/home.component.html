@@ -27,16 +27,21 @@
                 <nb-card>
                     <nb-card-body *ngFor="let banco of bancos" class="m-4">
                         <div class="row">
-                            <div class="col-1">
+                            <div class="col-4">
                                 <p><strong>{{banco.nome}}</strong></p> 
                             </div>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <button nbButton status="info">Ver extrato</button> 
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 <nb-tag-list>
                                     <nb-tag status="basic" class="align-middle h-100" appearance="filled" text="R$ {{banco.valor}}"></nb-tag>
                                 </nb-tag-list>
+                            </div>
+                            <div class="col-2">
+                                <button nbButton status="danger">
+                                    <nb-icon class="align-middle h-100" (click) = "deleteAccount(banco.id)" icon="trash"></nb-icon>
+                                </button>
                             </div>
                         </div>
                     </nb-card-body>

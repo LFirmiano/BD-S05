@@ -14,23 +14,28 @@ export class HomeComponent implements OnInit {
   result!: any
   resultList!: any
 
-  bancos: Bancos[] =[
-
-    new Bancos('Next',100.2),
-    new Bancos('Inter',58),
-    new Bancos('Nubank',80.4),
-  ];
+  bancos: Bancos[] = []
 
   constructor(private ContaService: ContaService) { }
 
   ngOnInit(): void {
-    this.resultList = this.ContaService.list()
-    console.log(this.resultList)
+    this.resultList = this.ContaService.list().subscribe((result: any) => {
+      result.forEach( (element: any) => {
+        this.bancos.push(new Bancos(element.name, element.totalValue, element.id))
+      });
+    })
   }
 
   submitForm(){
-    this.result = this.ContaService.create(this.nomeBanco)
-    console.log(this.result)
+    this.ContaService.create(this.nomeBanco).subscribe((result:any) => {
+      window.location.reload()
+    })
+  }
+
+  deleteAccount(id: number | undefined){
+    this.ContaService.delete(id).subscribe((result: any) => {
+      window.location.reload()
+    })
   }
 
 }

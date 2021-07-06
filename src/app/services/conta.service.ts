@@ -6,14 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ContaService {
   
-  baseUrl = 'http://path.com.br/accounts/'
+  baseUrl = 'http://localhost:8090/accounts/'
   result: any
 
   constructor(private http: HttpClient) { }
 
   list() {
-    // this.result = this.http.get(this.baseUrl)
-    return "oi"
+    return this.http.get(this.baseUrl)
   }
 
   readById(id: string | null) {
@@ -23,13 +22,12 @@ export class ContaService {
   }
 
   create(nome: any){
-    // this.result = this.http.post(this.baseUrl, {name: nome})
-    return {name: nome}
+    return this.http.post(this.baseUrl, {name: nome})
   }
 
-  delete(id: number){
+  delete(id: number | undefined){
     const url =`${this.baseUrl}${id}`
-    // this.result = this.http.delete(url)
+    return this.http.delete(url)
   }
 
 

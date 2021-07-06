@@ -13,27 +13,34 @@ export class CategoriasComponent implements OnInit {
   result!: any
   resultList!: any
 
-  categorias: Categorias[] =[
+  categorias: Categorias[] = [] 
+  // [
 
-    new Categorias('Alimentacao'),
-    new Categorias('Transporte'),
-    new Categorias('Sexo Anal'),
-  ];
+  //   new Categorias('Alimentacao',1),
+  //   new Categorias('Transporte',2),
+  //   new Categorias('Sexo Anal',3),
+  // ];
 
   constructor(private CategoriaService: CategoriaService) { }
 
   ngOnInit(): void {
-    this.resultList = this.CategoriaService.list()
-    console.log(this.resultList)
+    this.resultList = this.CategoriaService.list().subscribe((result: any) => {
+      result.forEach( (element: any) => {
+        this.categorias.push(new Categorias(element.name, element.id))
+      });
+    })
   }
 
   submitForm(){
-    this.result = this.CategoriaService.create(this.nomeCategoria)
-    console.log(this.result)
+    this.CategoriaService.create(this.nomeCategoria).subscribe((result: any) => {
+      window.location.reload()
+    })
   }
 
-  teste(){
-    console.log("oi")
+  deleteCategory(id: number | undefined){
+    this.CategoriaService.delete(id).subscribe((result: any) => {
+      console.log(result)
+    })
   }
 
 }

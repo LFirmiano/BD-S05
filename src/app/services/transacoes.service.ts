@@ -17,7 +17,7 @@ export class TransacoesService {
   }
 
   readByIdSpents(id: string | null) {
-    const url =`${this.baseUrl}spends/${id}`
+    const url =`${this.baseUrl}spents/${id}`
     this.result =  this.http.get(url)
   }
 
@@ -26,7 +26,7 @@ export class TransacoesService {
   }
 
   deleteSpents(id: number){
-    const url =`${this.baseUrl}spends/${id}`
+    const url =`${this.baseUrl}spents/${id}`
     this.result = this.http.delete(url)
   }
 
