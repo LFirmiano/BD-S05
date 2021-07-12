@@ -3,6 +3,8 @@ export class Transacoes{
         public nome: string,
         public valor: number | string,
         public date?: Date | string,
+        public accountIn?:number,
+        public accountOut?:number,
         public id?:number,
     ){
 

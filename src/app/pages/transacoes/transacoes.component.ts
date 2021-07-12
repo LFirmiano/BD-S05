@@ -57,16 +57,28 @@ export class TransacoesComponent implements OnInit {
       this.sendTransaction = this.TransacoesService.treatDataSpentRevenue(this.formSubmission)
       if (this.formSubmission.nome == 0){
         this.sendTransaction.name = 'RECEITA'
-        this.TransacoesService.createRevenues(this.sendTransaction)
+        this.TransacoesService.createRevenues(this.sendTransaction).subscribe((result:any) => {
+          window.location.reload()
+        }, error => {
+          window.location.reload()
+        })
       } else {
         this.sendTransaction.name = 'DESPESA'
         console.log(this.sendTransaction)
-        // this.TransacoesService.createSpents(this.sendTransaction).subscribe((result:any) => {
-        //   console.log(result)
-        // }, error => {
-        //   console.log(error)
-        // })
+        this.TransacoesService.createSpents(this.sendTransaction).subscribe((result:any) => {
+          window.location.reload()
+        }, error => {
+          window.location.reload()
+        })
       }
+    } else if (this.formSubmission.nome == 2) {
+      this.sendTransaction = this.TransacoesService.treatDataTransfer(this.formSubmission)
+      this.sendTransaction.name = "TRANSFERENCIA ENTRE CONTAS"
+      this.TransacoesService.createTransfers(this.sendTransaction).subscribe((result:any) => {
+        window.location.reload()
+      }, error => {
+        window.location.reload()
+      })
     }
   }
 

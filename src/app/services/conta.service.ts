@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ContaService {
   
-  baseUrl = 'http://localhost:8090/accounts/'
+  baseUrl = 'http://localhost:8080/accounts/'
   result: any
 
   constructor(private http: HttpClient) { }

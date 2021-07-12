@@ -12,7 +12,7 @@
         <nb-card>
             <nb-card-body>
 
-                <div class="row">
+                <div class="row mb-4">
                     <div class="col-md-10 offset-md-1">
                       <h4 class="text-center">
                         Historico de Transacoes
@@ -23,6 +23,29 @@
                       <button nbButton status="success" routerLink="/transacoes"><nb-icon icon="plus-outline"></nb-icon></button>  
                     </div>
                 </div>
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Conta Entrada</th>
+                        <th scope="col">Conta Saida</th>
+                        <th scope="col">Descricao</th>
+                        <th scope="col">Acao</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let transacoes of todasTransacoes">
+                        <th scope="row">{{ transacoes.date }}</th>
+                        <td>R$ {{ transacoes.valor }}</td>
+                        <td>{{ transacoes.accountIn }}</td>
+                        <td>{{ transacoes.accountOut }}</td>
+                        <td>{{ transacoes.nome }}</td>
+                        <td><button class="btn btn-danger" (click)="deletar(transacoes.id,transacoes.nome)">Deletar</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
 
             </nb-card-body>
         </nb-card>
