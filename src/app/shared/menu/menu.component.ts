@@ -19,20 +19,12 @@ export class MenuComponent implements OnInit {
       link: '/'
     },
     {
-      title: 'Extrato',
-      link: '/extrato'
+      title: 'Categorias',
+      link: '/categorias'
     },
-    // {
-    //   title: 'Investimento',
-    //   link: '/investimentos'
-    // },
     {
       title: 'Transacoes',
-      link: '/transacoes'
-    },
-    {
-      title: 'Minha Contas',
-      link: '/meusdados'
+      link: '/extrato'
     }
   ];
 

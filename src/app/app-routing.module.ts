@@ -1,3 +1,4 @@
+import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 import { TransacoesComponent } from './pages/transacoes/transacoes.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
   path: 'extrato',
   component: ExtratoComponent
+  },
+  {
+  path: 'categorias',
+  component: CategoriasComponent
   }
 ];
 

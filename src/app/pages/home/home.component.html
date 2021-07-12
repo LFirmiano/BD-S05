@@ -1,4 +1,4 @@
-<nb-layout>
+  <nb-layout>
     <nb-layout-header fixed>
         Income Management
     </nb-layout-header>
@@ -8,25 +8,44 @@
     </nb-sidebar>
 
     <nb-layout-column class="colored-column-warning">
-        <div class="my-4">
-            <input type="text" nbInput status="basic" placeholder="Banco">
-            <button nbButton status="success" class="mx-4">Cadastrar Banco</button>
-        </div>
-        <nb-card status="warning" *ngFor="let banco of bancos" >
-            <nb-card-header>Banco {{banco.nome}} </nb-card-header>
+
+        <nb-card>
             <nb-card-body>
                 <div class="row">
-                    <div class="col-md-11">
-                        <h5 class="text-success"> 
-                            R$ {{banco.valor}}
-                        </h5>
-                    </div>
-                    <div class="col-md-1">
-                        <button nbButton status="success" ghost>
-                            <nb-icon class="align-middle h-100" icon="arrow-ios-forward"></nb-icon>
-                        </button>
+                    <div class="col-md-10 offset-md-1">
+                      <h4 class="text-center">
+                        Minhas Contas
+                      </h4>
                     </div>
                 </div>
+
+                <div class="my-4">
+                    <input type="text" nbInput [(ngModel)] = 'nomeBanco' status="basic" placeholder="Banco">
+                    <button nbButton status="success" (click) = 'submitForm()' class="mx-4">Cadastrar Banco</button>
+                </div>
+
+                <nb-card>
+                    <nb-card-body *ngFor="let banco of bancos" class="m-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <p><strong>{{banco.nome}}</strong></p> 
+                            </div>
+                            <div class="col-3">
+                                <button nbButton status="info">Ver extrato</button> 
+                            </div>
+                            <div class="col-2">
+                                <nb-tag-list>
+                                    <nb-tag status="basic" class="align-middle h-100" appearance="filled" text="R$ {{banco.valor}}"></nb-tag>
+                                </nb-tag-list>
+                            </div>
+                            <div class="col-2">
+                                <button nbButton status="danger">
+                                    <nb-icon class="align-middle h-100" (click) = "deleteAccount(banco.id)" icon="trash"></nb-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
             </nb-card-body>
         </nb-card>
 

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbCardModule, NbIconModule, NbButtonModule, NbInputModule, NbSelectModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbCardModule, NbIconModule, NbButtonModule, NbInputModule, NbSelectModule, NbTagModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -13,6 +13,8 @@ import { TransacoesComponent } from './pages/transacoes/transacoes.component';
 import { MeusDadosComponent } from './pages/meus-dados/meus-dados.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
+import { FormsModule } from '@angular/forms';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ExtratoComponent } from './pages/extrato/extrato.component';
     MenuComponent,
     TransacoesComponent,
     MeusDadosComponent,
-    ExtratoComponent
+    ExtratoComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import { ExtratoComponent } from './pages/extrato/extrato.component';
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NbTagModule
   ],
   providers: [],
   bootstrap: [AppComponent]

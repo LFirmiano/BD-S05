@@ -6,33 +6,33 @@ import { Injectable } from '@angular/core';
 })
 export class TransacoesService {
 
-  baseUrl = 'http://path.com.br/transactions/'
+  baseUrl = 'http://localhost:8080/transactions/'
   result: any
   
   constructor(private http: HttpClient) { }
   
   // GASTOS
   listSpents() {
-    this.result = this.http.get(this.baseUrl + 'spents')
+    return this.http.get(this.baseUrl + 'spents')
   }
 
   readByIdSpents(id: string | null) {
-    const url =`${this.baseUrl}spends/${id}`
+    const url =`${this.baseUrl}spents/${id}`
     this.result =  this.http.get(url)
   }
 
   createSpents(gastos: any){
-    this.result = this.http.post<JSON>(this.baseUrl + 'spents/', gastos)
+    return this.http.post(this.baseUrl + 'spents/', gastos)
   }
 
   deleteSpents(id: number){
-    const url =`${this.baseUrl}spends/${id}`
-    this.result = this.http.delete(url)
+    const url =`${this.baseUrl}spents/${id}`
+    return this.http.delete(url)
   }
 
   // RECEITA
   listRevenues() {
-    this.result = this.http.get(this.baseUrl + 'revenues/')
+    return this.http.get(this.baseUrl + 'revenues/')
   }
 
   readByIdRevenues(id: string | null) {
@@ -41,41 +41,41 @@ export class TransacoesService {
   }
 
   createRevenues(gastos: any){
-    this.result = this.http.post<JSON>(this.baseUrl + 'revenues/', gastos)
+    return this.http.post(this.baseUrl + 'revenues/', gastos)
   }
 
   deleteRevenues(id: number){
     const url =`${this.baseUrl}revenues/${id}`
-    this.result = this.http.delete(url)
+    return this.http.delete(url)
   }
 
   // TRANSFERENCIAS
   listTransfers() {
-    this.result = this.http.get(this.baseUrl + 'transfer/')
+    return this.http.get(this.baseUrl + 'transfers/')
   }
 
   readByIdTransfers(id: string | null) {
-    const url =`${this.baseUrl}transfer/${id}`
+    const url =`${this.baseUrl}transfers/${id}`
     this.result =  this.http.get(url)
   }
 
   createTransfers(gastos: any){
-    this.result = this.http.post(this.baseUrl + 'transfer/', gastos)
+    return this.http.post(this.baseUrl + 'transfers/', gastos)
   }
 
   deleteTransfers(id: number){
-    const url =`${this.baseUrl}transfer/${id}`
-    this.result = this.http.delete(url)
+    const url =`${this.baseUrl}transfers/${id}`
+    return this.http.delete(url)
   }
 
   // GERAR JSON RECEITA/GASTOS
   treatDataSpentRevenue(input: any){
-    return {account: input.id_account, value: input.value, category: input.id_category}
+    return {name: input.nome, account: parseInt(input.account_in), value: parseFloat(input.valor), category: parseInt(input.category)}
   }
 
   // GERAR JSON TRANSFERENCIAS
   treatDataTransfer(input: any){
-    return {account_in: input.id_account_in, account_out: input.id_account_out, value: input.value, category: input.id_category}
+    return {name: input.nome, account_in: input.account_in, account_out: input.account_out, value: parseFloat(input.valor), category: input.category}
   }
 
 }

@@ -1,3 +1,4 @@
+import { ContaService } from './../../services/conta.service';
 import { Bancos } from './../../Models/banco.model';
 import { Component, OnInit } from '@angular/core';
 import { NbMenuItem, NbSidebarService } from '@nebular/theme';
@@ -9,16 +10,32 @@ import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 })
 export class HomeComponent implements OnInit {
 
-  bancos: Bancos[] =[
+  nomeBanco!: string
+  result!: any
+  resultList!: any
 
-    new Bancos('Next',100.2),
-    new Bancos('Inter',58),
-    new Bancos('Nubank',80.4),
-  ];
+  bancos: Bancos[] = []
 
-  constructor() { }
+  constructor(private ContaService: ContaService) { }
 
   ngOnInit(): void {
+    this.resultList = this.ContaService.list().subscribe((result: any) => {
+      result.forEach( (element: any) => {
+        this.bancos.push(new Bancos(element.name, element.totalValue, element.id))
+      });
+    })
+  }
+
+  submitForm(){
+    this.ContaService.create(this.nomeBanco).subscribe((result:any) => {
+      window.location.reload()
+    })
+  }
+
+  deleteAccount(id: number | undefined){
+    this.ContaService.delete(id).subscribe((result: any) => {
+      window.location.reload()
+    })
   }
 
 }
