@@ -17,8 +17,7 @@ export class ContaService {
 
   readById(id: string | null) {
     const url =`${this.baseUrl}${id}`
-    // this.result =  this.http.get(url)
-    return url
+    return this.http.get(url)
   }
 
   create(nome: any){
